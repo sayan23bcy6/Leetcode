@@ -1,0 +1,1 @@
+This repository is a storage place for all the questions I have solved in Leetcode.The number of the file represents the question number in leetcode so feel free to check out the solutions based on the questions.
