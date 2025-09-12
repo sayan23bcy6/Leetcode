@@ -20,13 +20,19 @@ class Solution {
 
             int nextPos = binarySearch(stones, stones[pos] + nextJump, pos + 1, n - 1);
             if (nextPos != -1 && dp(stones, nextJump, nextPos, n)) {
-                memo.computeIfAbsent(pos, k -> new HashMap<>()).put(jump, true);
+                if (!memo.containsKey(pos)) {
+                    memo.put(pos, new HashMap<>());
+                }
+                memo.get(pos).put(jump, true);
                 return true;
             }
         }
 
-        memo.computeIfAbsent(pos, k -> new HashMap<>()).put(jump, false);
-        return false;
+        if (!memo.containsKey(pos)) {
+                    memo.put(pos, new HashMap<>());
+                }
+                memo.get(pos).put(jump, false);
+                return false;
     }
 
     int binarySearch(int[] arr, int target, int low, int high) {
